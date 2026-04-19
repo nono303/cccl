@@ -233,6 +233,22 @@ EOF
         clopt+=("${slash}O2")
         ;;
 
+    -O3)
+        clopt+=("${slash}O3")
+        ;;
+
+    -Ofast)
+        clopt+=("${slash}O2" "${slash}fp:fast")
+        ;;
+
+    -Os)
+        clopt+=("${slash}O1")
+        ;;
+
+    -Oz)
+        clopt+=("${slash}Os")
+        ;;
+
     -L)
         shift
         path=`echo "$1"`
@@ -382,12 +398,7 @@ EOF
         esac
         ;;
 
-    -isystem)
-        shift
-        clopt+=("${slash}I$1")
-        ;;
-
-    -I)
+    -isystem | -I)
         shift
         clopt+=("${slash}I$1")
         ;;
@@ -423,7 +434,7 @@ EOF
         fi
         ;;
 
-    *.cc | *.cxx | *.C)
+    *.cc | *.cxx | *.C | *.c++)
         # C++ source file with non .cpp extension, make sure cl understand 
         # that it is C++
         clopt+=("${slash}Tp$1")
