@@ -124,7 +124,7 @@ AC_CANONICAL_HOST
 
 If your *configure.ac* file contains a reference to `LT_INIT`, add the `[win32-dll]` option:
 ```
-LT_INIT [win32-dll]
+LT_INIT([win32-dll])
 ```
 
 Or if your *configure.ac* file is using the legacy, deprecated equivalent syntax and contains a reference to `AM_PROG_LIBTOOL`, add the
